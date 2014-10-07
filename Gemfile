@@ -20,7 +20,7 @@ gem 'byebug'
 
 
 # Server
-gem 'sqlite3'
+gem 'pg'
 gem 'unicorn'
 
 group :test do
