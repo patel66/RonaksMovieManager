@@ -17,7 +17,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'pry'
 gem 'byebug'
-
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Server
 gem 'pg'
