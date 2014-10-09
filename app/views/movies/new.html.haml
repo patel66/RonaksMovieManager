@@ -1,0 +1,21 @@
+:css
+  body {
+    background-image:  url('/assets/damper.png');
+  }
+  .container {
+    background-color: white;
+  }
+
+%div.container
+  = simple_form_for(@movie) do |f|
+    = f.error_notification
+    .form-group
+      = f.label :title, class: "col-sm-4 control-label"
+      .col-sm-4
+        = f.input :title, autofocus: true , class: "form-control"
+    .form-group
+      = f.label :password, class: "col-sm-4 control-label"
+      .col-sm-4
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+
+

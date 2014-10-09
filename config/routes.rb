@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  get 'movies/create'
-
-  get 'movies/show'
-
-  get 'movies/update'
-
-  get 'movies/delete'
+  resources :movies
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,30 @@
+:css
+  body {
+    background-image:  url('/assets/damper.png');
+  }
+  .container {
+    background-color: white;
+  }
+
+%div.container
+  %table.table.table-hover
+    %h3.text-center Movies Collection
+    %h3.btn.btn-default.pull-right= link_to "Add Movie", new_movie_path
+    %thead
+      %tr
+        %th Title
+        %th Format
+        %th Length
+        %th Year
+        %th Rating
+    %tbody
+      -@movies.each do |movie|
+        %tr
+          %td= link_to movie.title, edit_movie_path(movie.id)
+          %td= movie.format
+          %td= format_time(movie.duration)
+          %td= movie.release_year
+          %td
+            -movie.rating.times do
+              %p.glyphicon.glyphicon-star
+          / %td.btn.btn-primary Delete

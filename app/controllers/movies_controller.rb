@@ -2,10 +2,15 @@ class MoviesController < ApplicationController
   def create
   end
 
-  def show
+  def new
+    @movie = Movie.new
   end
 
-  def update
+  def index
+    @movies = Movie.all.unscope(:order)
+  end
+
+  def edit
   end
 
   def delete
