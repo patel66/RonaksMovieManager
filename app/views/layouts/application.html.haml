@@ -18,6 +18,7 @@
     %meta{:content => "initial-scale=1.0", :name => "viewport"}
     -#TODO add favicon
     = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "animation"
     = javascript_include_tag "application"
     = csrf_meta_tags
 
@@ -26,4 +27,5 @@
     %p.alert-warning= notice
     %p.alert-warning= alert
     =yield
+    = render 'layouts/footer'
 
