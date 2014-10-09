@@ -4,7 +4,8 @@ require 'database_cleaner'
 require 'capybara/poltergeist'
 require 'simplecov'
 require 'devise'
-SimpleCov.start
+require 'capybara/rspec'
+# SimpleCov.start
 
 Capybara.default_wait_time = 8
 
@@ -39,9 +40,6 @@ RSpec.configure do |config|
 
   config.before :each do
     DatabaseCleaner.start
-
-    SetupServiceCategorizationService.new.call
-    SetupRolesService.new.call
   end
 
   config.after(:each) do
