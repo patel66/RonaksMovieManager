@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:edit, :update]
+  before_action :set_movie, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :new, :create]
 
   def create
@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all.unscope(:order)
+    @movies = Movie.all.order(params[:order])
   end
 
   def edit
@@ -31,7 +31,9 @@ class MoviesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @movie.destroy
+    redirect_to movies_path, notice: 'Movie was successfully removed.'
   end
 
   private
@@ -43,6 +45,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def movie_params
-    params.require(:movie).permit(:title, :duration, :format, :rating, :release_year)
+    params.require(:movie).permit(:title, :duration, :format, :rating, :release_year, :order)
   end
 end
