@@ -1,7 +1,7 @@
 :css
-  body {
-    background-image:  url('/assets/damper.png');
-  }
+  / body {
+  /   background-image:  url('/assets/damper.png');
+  / }
   .container {
     background-color: white;
   }
@@ -12,11 +12,16 @@
     %h3.btn.btn-default.pull-right= link_to "Add Movie", new_movie_path
     %thead
       %tr
-        %th Title
-        %th Format
-        %th Length
-        %th Year
-        %th Rating
+        %th
+          =link_to "Title", order: 'title'
+        %th
+          =link_to "Format", order: 'format'
+        %th
+          =link_to "Length", order: 'duration DESC'
+        %th
+          =link_to "Year", order: 'release_year DESC'
+        %th
+          =link_to "Rating", order: 'rating DESC'
     %tbody
       -@movies.each do |movie|
         %tr
@@ -27,4 +32,7 @@
           %td
             -movie.rating.times do
               %p.glyphicon.glyphicon-star
-          / %td.btn.btn-primary Delete
+          %td
+            = link_to 'Remove', movie, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
