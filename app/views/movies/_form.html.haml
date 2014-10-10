@@ -1,0 +1,13 @@
+%div.wrapper
+  = simple_form_for(@movie, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control ' } }) do |f|
+    =f.input :title, placeholder: "Movie Name"
+    =f.input :format, collection: format_array, as: :select
+    =f.input :duration, placeholder: "In Minutes"
+    =f.input :release_year, placeholder: "Year"
+    =f.input :rating, collection: [1, 2, 3 , 4, 5], default: 1
+    %a{href: movies_path}
+      %div.cancel.btn.btn-lg.btn-danger
+        Cancel
+    =f.button :submit, "Save", class: "confirm btn btn-lg btn-success pull-right"
+
+
